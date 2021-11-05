@@ -1,4 +1,4 @@
-const errorOutput = require('../errorOutput');
+const errorOutput = require('../consoleOutput/errorOutput');
 const { configRaw, inputRaw, outputRaw } = require('./helpers/parseCLI');
 
 const validatorOptions = require('./helpers/validatorOptions');

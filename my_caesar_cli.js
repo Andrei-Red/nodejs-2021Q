@@ -1,6 +1,16 @@
-const handleCli = require('./src/handleCLI/handlerCli')
+const handleCli = require('./src/handleCLI/handlerCli');
+const { pipeline } = require('stream');
+const createReadStream = require('./src/streams/readStream');
+const createWriteStream = require('./src/streams/writeStream');
+
+const { config, input, output } = handleCli();
 
 
-const validCli = handleCli()
-
-console.log(validCli);
+pipeline(
+    createReadStream(input),
+    createWriteStream(output),
+    (err) => {
+        console.log('err', err);
+        process.exit(1);
+    }
+);
