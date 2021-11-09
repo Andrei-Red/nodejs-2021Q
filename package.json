@@ -22,7 +22,6 @@
   },
   "homepage": "https://github.com/Andrei-Red/nodejs-2021Q4#readme",
   "dependencies": {
-    "commander": "^8.3.0"
   },
   "devDependencies": {
     "eslint": "^8.1.0",
