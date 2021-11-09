@@ -4,6 +4,10 @@ function validatorOptions(text) {
     const arrayParams = text.split('-');
 
     arrayParams.forEach((param) => {
+        if(param.length > 2) {
+            hasError = true;
+        }
+
         if (param[0] === 'C' || param[0] === 'R') {
             if (param[1] === '1' || param[1] === '0') {
                 params.push(param);
