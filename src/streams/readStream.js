@@ -7,9 +7,9 @@ function createReadStream(filePath) {
         const pathInputFile = path.resolve(filePath);
         return fs.createReadStream(pathInputFile);
     } else {
-        messageOutput('Enter your data. To exit use Ctrl + C.\n')
+        messageOutput('Enter your data. To exit use Ctrl + C.\n');
         return process.stdin;
     }
 }
 
-module.exports = createReadStream
+module.exports = createReadStream;
