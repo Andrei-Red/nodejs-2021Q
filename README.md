@@ -4,9 +4,11 @@ ___
 
 ## Ciphering CLI Tool
 
-####The CLI Tool for encode and decode you text with Caesar cipher.
+#### [Technical task](https://github.com/rolling-scopes-school/basic-nodejs-course)
 
-> ####`"I came, I saw, I coding."`
+#### The CLI Tool for encode and decode you text with Caesar cipher.
+
+> #### `"I came, I saw, I coding."`
 
 
 Learn more [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher).
@@ -54,7 +56,6 @@ Learn more [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher).
 3. You may not use `--input` argument then you need to write your text in the terminal line. After that exit the program `Ctrl + C`. Your encoding or decoding text will be saved in the output file.
 4. You may not use `--output` argument  then  you will see encoded or decoded messages in the terminal line.
 5. Only English letters will be encoded or decoded.  
-
 
 ___
 ##### For [The Rolling Scopes School](https://rs.school/) course with
