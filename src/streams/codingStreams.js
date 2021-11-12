@@ -6,8 +6,8 @@ const rot8 = require('../coding/rot8');
 const createCodingStreamsArray = (config) => {
     const answer = [];
     config.forEach((param) => {
-        const codingLitter = param.split('')[0];
-        if (codingLitter === 'C') {
+        const codingLetter = param.split('')[0];
+        if (codingLetter === 'C') {
             answer.push(
                 new Transform({
                     transform(chunk, encoding, callback) {
@@ -16,7 +16,7 @@ const createCodingStreamsArray = (config) => {
                     },
                 })
             );
-        } else if (codingLitter === 'R') {
+        } else if (codingLetter === 'R') {
             answer.push(
                 new Transform({
                     transform(chunk, encoding, callback) {
