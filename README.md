@@ -24,7 +24,7 @@ Learn more [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher).
 3. Write your own commands to caesar CLI!  
     For example: 
 
-    `my_ciphering_cli -c C1-C1-A-R0`
+    `node .\my_caesar_cli.js -c C1-C1-A-R0`
 
 ### Notice: 
 
@@ -51,7 +51,7 @@ Learn more [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher).
 
    For example: 
    
-    `my_ciphering_cli -c "C1-C1-R0-A" -i "./input.txt" -o "./output.txt"`
+    `node .\my_caesar_cli.js -c "C1-C1-R0-A" -i "./input.txt" -o "./output.txt"`
 
 3. You may not use `--input` argument then you need to write your text in the terminal line. After that exit the program `Ctrl + C`. Your encoding or decoding text will be saved in the output file.
 4. You may not use `--output` argument  then  you will see encoded or decoded messages in the terminal line.
