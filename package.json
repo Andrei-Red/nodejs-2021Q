@@ -1,0 +1,30 @@
+{
+  "name": "ciphering-cli-tool",
+  "version": "1.0.0",
+  "description": "coding and decoding text",
+  "main": "my_caesar_cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrei-Red/nodejs-2021Q4.git"
+  },
+  "keywords": [
+    "codin",
+    "decoding",
+    "cli"
+  ],
+  "author": "Andrei Denicenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andrei-Red/nodejs-2021Q4/issues"
+  },
+  "homepage": "https://github.com/Andrei-Red/nodejs-2021Q4#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "eslint": "^8.1.0",
+    "prettier": "^2.4.1"
+  }
+}

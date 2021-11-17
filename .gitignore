@@ -1,0 +1,11 @@
+/node_modules
+/.eslintcache*
+/testFiles
+/build
+
+npm-debug.log*
+.eslintcache*
+.eslintrc.json
+.prettierrc
+
+package-lock.json
