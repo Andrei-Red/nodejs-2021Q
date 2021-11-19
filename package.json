@@ -4,7 +4,8 @@
   "description": "coding and decoding text",
   "main": "my_caesar_cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/Andrei-Red/nodejs-2021Q4#readme",
   "dependencies": {
+    "jest": "^27.3.1"
   },
   "devDependencies": {
     "eslint": "^8.1.0",

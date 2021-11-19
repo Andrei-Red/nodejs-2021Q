@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1637269898415" clover="3.2.0">
+  <project timestamp="1637269898415" name="All files">
+    <metrics statements="43" coveredstatements="43" conditionals="16" coveredconditionals="16" methods="9" coveredmethods="9" elements="68" coveredelements="68" complexity="0" loc="43" ncloc="43" packages="1" files="3" classes="3"/>
+    <file name="atbach.js" path="C:\Users\Andrei_Dzenicenko\EPAM\nodeRS-School\task-1\nodejs-2021Q4\src\coding\atbach.js">
+      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="57" count="2" type="stmt"/>
+      <line num="60" count="74" type="stmt"/>
+      <line num="61" count="74" type="cond" truecount="2" falsecount="0"/>
+      <line num="62" count="30" type="stmt"/>
+      <line num="63" count="30" type="stmt"/>
+      <line num="65" count="44" type="stmt"/>
+      <line num="66" count="44" type="stmt"/>
+      <line num="72" count="1" type="stmt"/>
+    </file>
+    <file name="caesarCoding.js" path="C:\Users\Andrei_Dzenicenko\EPAM\nodeRS-School\task-1\nodejs-2021Q4\src\coding\caesarCoding.js">
+      <metrics statements="18" coveredstatements="18" conditionals="8" coveredconditionals="8" methods="5" coveredmethods="5"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+      <line num="32" count="3" type="stmt"/>
+      <line num="33" count="115" type="cond" truecount="2" falsecount="0"/>
+      <line num="34" count="60" type="stmt"/>
+      <line num="36" count="55" type="stmt"/>
+      <line num="39" count="115" type="stmt"/>
+      <line num="43" count="60" type="stmt"/>
+      <line num="48" count="60" type="cond" truecount="2" falsecount="0"/>
+      <line num="49" count="60" type="stmt"/>
+      <line num="51" count="60" type="cond" truecount="2" falsecount="0"/>
+      <line num="52" count="4" type="stmt"/>
+      <line num="54" count="56" type="stmt"/>
+      <line num="59" count="60" type="stmt"/>
+      <line num="61" count="60" type="cond" truecount="2" falsecount="0"/>
+      <line num="62" count="30" type="stmt"/>
+      <line num="65" count="60" type="stmt"/>
+      <line num="69" count="1" type="stmt"/>
+    </file>
+    <file name="rot8.js" path="C:\Users\Andrei_Dzenicenko\EPAM\nodeRS-School\task-1\nodejs-2021Q4\src\coding\rot8.js">
+      <metrics statements="16" coveredstatements="16" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="5" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="3" type="stmt"/>
+      <line num="10" count="115" type="stmt"/>
+      <line num="11" count="115" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="60" type="cond" truecount="2" falsecount="0"/>
+      <line num="13" count="30" type="stmt"/>
+      <line num="14" count="30" type="stmt"/>
+      <line num="15" count="30" type="stmt"/>
+      <line num="17" count="30" type="stmt"/>
+      <line num="18" count="30" type="stmt"/>
+      <line num="19" count="30" type="stmt"/>
+      <line num="22" count="55" type="stmt"/>
+      <line num="23" count="55" type="stmt"/>
+      <line num="29" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
