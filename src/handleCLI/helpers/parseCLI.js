@@ -2,8 +2,16 @@ const errorOutput = require('../../consoleOutput/errorOutput');
 
 let configRaw, inputRaw, outputRaw;
 
+const processArgv = process.argv;
+
 try {
-    const myArgs = process.argv.slice(2);
+    parseCLI(processArgv);
+} catch {
+    errorOutput('Problem with CLI');
+}
+
+function parseCLI(processArgv) {
+    const myArgs = processArgv.slice(2);
 
     if (myArgs.length > 6) {
         errorOutput('Too many parameters');
@@ -37,8 +45,6 @@ try {
     configRaw = flagConfig[1];
     outputRaw = flagOutput ? flagOutput[1] : null;
     inputRaw = flagInput ? flagInput[1] : null;
-} catch {
-    errorOutput('Problem with CLI');
 }
 
-module.exports = { configRaw, inputRaw, outputRaw };
+module.exports = { configRaw, inputRaw, outputRaw, parseCLI};
