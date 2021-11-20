@@ -42,9 +42,14 @@ function parseCLI(processArgv) {
         errorOutput('Problem with input');
     }
 
-    configRaw = flagConfig[1];
-    outputRaw = flagOutput ? flagOutput[1] : null;
-    inputRaw = flagInput ? flagInput[1] : null;
+    try {
+        configRaw = flagConfig[1];
+        outputRaw = flagOutput ? flagOutput[1] : null;
+        inputRaw = flagInput ? flagInput[1] : null;
+    } catch {
+        errorOutput('Problem with CLI');
+    }
+
 }
 
 module.exports = { configRaw, inputRaw, outputRaw, parseCLI};

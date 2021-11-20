@@ -4,11 +4,11 @@ const { configRaw, inputRaw, outputRaw } = require('./helpers/parseCLI');
 const validatorOptions = require('./helpers/validatorOptions');
 const checkFileAvailability = require('./helpers/checkFileAvailability');
 
-const config = validatorOptions(configRaw);
-const input = checkFileAvailability(inputRaw);
-const output = checkFileAvailability(outputRaw);
+const configPure = validatorOptions(configRaw);
+const inputPure = checkFileAvailability(inputRaw);
+const outputPure = checkFileAvailability(outputRaw);
 
-function handlerCli() {
+function handlerCli(config = configPure, input = inputPure, output= outputPure) {
     switch (true) {
         case config.hasError:
             errorOutput('Config data is not correct.');
