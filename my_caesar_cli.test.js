@@ -3,6 +3,8 @@ const { parseCLI } = require('./src/handleCLI/helpers/parseCLI');
 const checkFileAvailability = require('./src/handleCLI/helpers/checkFileAvailability');
 const handlerCli = require('./src/handleCLI/handlerCli');
 const validatorOptions = require('./src/handleCLI/helpers/validatorOptions');
+const myCaesarCLI = require('./my_caesar_cli.pipeline');
+const fs = require('fs');
 
 describe('Error scenarios', () => {
     let myWrongConfig = ['', '', '-c', 'C1-C1-A-R0', '-c', 'C1'];
@@ -96,11 +98,11 @@ describe('Error scenarios', () => {
     });
 
     test('Case-5: Should called "process.exit" with params not 0, when Input: User passes -o argument with path to directory that doesn\'t exist or with no read access', () => {
-            const config = validatorOptions('C1');
-            const input = checkFileAvailability();
-            const output = checkFileAvailability('./wrongOutput.txt');
+        const config = validatorOptions('C1');
+        const input = checkFileAvailability();
+        const output = checkFileAvailability('./wrongOutput.txt');
 
-            handlerCli(config, input, output);
+        handlerCli(config, input, output);
         expect(spy.process).toHaveBeenCalledWith(1);
     });
 
@@ -115,5 +117,110 @@ describe('Error scenarios', () => {
 
         expect(spy.stdout).toBeCalledTimes(1);
         expect(spy.stdout).toHaveBeenCalledWith(errorMessage);
+    });
+});
+
+describe('Success scenarios', () => {
+    const pathInputFile = './test/input.txt';
+    const pathOutputFile = './test/output.txt';
+    let spy = {};
+
+    beforeEach(() => {
+        spy.process = jest.spyOn(process, 'exit').mockImplementation(() => {});
+        spy.stdout = jest
+            .spyOn(process.stdout, 'write')
+            .mockImplementation(() => {});
+
+        fs.writeFile(pathOutputFile, '', { flags: 'w' }, function (err) {});
+    });
+
+    afterEach(() => {
+        spy.stdout.mockRestore();
+        spy.process.mockRestore();
+    });
+
+    test('Case-1: Should be correct config: C1', () => {
+        const testingConfig = 'C1';
+        const config = validatorOptions(testingConfig);
+        handlerCli(config);
+        expect(spy.stdout).toBeCalledTimes(0);
+    });
+
+    test('Case-1: Should be correct config: C1-C0-A-R0-R1-A-R0-R1', () => {
+        const testingConfig = 'C1-C0-A-R0-R1-A-R0-R1';
+        const config = validatorOptions(testingConfig);
+        handlerCli(config);
+        expect(spy.stdout).toBeCalledTimes(0);
+    });
+
+    test('Case-1: Should be correct config: C1-C1-C0-A-R0-R1-A-R0-R0-R1-A-R0-R1', () => {
+        const testingConfig = 'C1-C1-C0-A-R0-R1-A-R0-R0-R1-A-R0-R1';
+        const config = validatorOptions(testingConfig);
+        handlerCli(config);
+        expect(spy.stdout).toBeCalledTimes(0);
+    });
+
+    test('Case-1: Should be correct config: A-R0-R0-R1-A-R0-R1-A-A-A-C1-C1-C1-C1-C0-A-R0-R1-A', () => {
+        const testingConfig =
+            'A-R0-R0-R1-A-R0-R1-A-A-A-C1-C1-C1-C1-C0-A-R0-R1-A';
+        const config = validatorOptions(testingConfig);
+        handlerCli(config);
+        expect(spy.stdout).toBeCalledTimes(0);
+    });
+
+    test('Case-2: Should coding text config "C1-C1-R0-A"', () => {
+        const correctEncodingText = 'Myxn xn nbdobm. Tbnnfzb ferlm "_" nhteru!';
+
+        const config = validatorOptions('C1-C1-R0-A');
+        const input = checkFileAvailability(pathInputFile);
+        const output = checkFileAvailability(pathOutputFile);
+
+        myCaesarCLI(config.params, input.validPath, output.validPath);
+
+        fs.createReadStream(pathOutputFile).on('data', (buffer) => {
+            expect(buffer.toString()).toEqual(correctEncodingText);
+        });
+    });
+
+    test('Case-2: Should coding text config "C1-C0-A-R1-R0-A-R0-R0-C1-A"', () => {
+        const correctEncodingText = 'Vhgw gw wkmxkv. Ckwwoik onauv "_" wqcnad!';
+
+        const config = validatorOptions('C1-C0-A-R1-R0-A-R0-R0-C1-A');
+        const input = checkFileAvailability(pathInputFile);
+        const output = checkFileAvailability(pathOutputFile);
+
+        myCaesarCLI(config.params, input.validPath, output.validPath);
+
+        fs.createReadStream(pathOutputFile).on('data', (buffer) => {
+            expect(buffer.toString()).toEqual(correctEncodingText);
+        });
+    });
+
+    test('Case-2: Should coding text config "A-A-A-R1-R0-R0-R0-C1-C1-A"', () => {
+        const correctEncodingText = 'Hvwg wg gsqfsh. Asggous opcih "_" gmapcz!';
+
+        const config = validatorOptions('A-A-A-R1-R0-R0-R0-C1-C1-A');
+        const input = checkFileAvailability(pathInputFile);
+        const output = checkFileAvailability(pathOutputFile);
+
+        myCaesarCLI(config.params, input.validPath, output.validPath);
+
+        fs.createReadStream(pathOutputFile).on('data', (buffer) => {
+            expect(buffer.toString()).toEqual(correctEncodingText);
+        });
+    });
+
+    test('Case-2: Should coding text config "C1-R1-C0-C0-A-R0-R1-R1-A-C1"', () => {
+        const correctEncodingText = 'This is secret. Message about "_" symbol!';
+
+        const config = validatorOptions('C1-R1-C0-C0-A-R0-R1-R1-A-C1');
+        const input = checkFileAvailability(pathInputFile);
+        const output = checkFileAvailability(pathOutputFile);
+
+        myCaesarCLI(config.params, input.validPath, output.validPath);
+
+        fs.createReadStream(pathOutputFile).on('data', (buffer) => {
+            expect(buffer.toString()).toEqual(correctEncodingText);
+        });
     });
 });
