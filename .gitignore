@@ -2,6 +2,7 @@
 /.eslintcache*
 /testFiles
 /build
+/coverage
 
 npm-debug.log*
 .eslintcache*
