@@ -6,7 +6,6 @@ const checkFileAvailability = require('../src/handleCLI/helpers/checkFileAvailab
 const handlerCli = require('../src/handleCLI/handlerCli');
 const validatorOptions = require('../src/handleCLI/helpers/validatorOptions');
 const myCaesarCLI = require('../my_caesar_cli.pipeline');
-/// const createReadStream = require('./src/streams/readStream')
 
 
 describe('Error scenarios', () => {
@@ -227,11 +226,3 @@ describe('Success scenarios', () => {
         });
     });
 });
-
-//
-// describe('Error pipeline', () => {
-//
-//     test('Should show error message if pipeline has error', () => {
-//         // jest.mock('./config', () => ({ foo: 'zed' }))
-//     })
-// })
