@@ -7,7 +7,6 @@ const handlerCli = require('../src/handleCLI/handlerCli');
 const validatorOptions = require('../src/handleCLI/helpers/validatorOptions');
 const myCaesarCLI = require('../my_caesar_cli.pipeline');
 
-
 describe('Error scenarios', () => {
     let myWrongConfig = ['', '', '-c', 'C1-C1-A-R0', '-c', 'C1'];
     let errorMessage;
@@ -120,6 +119,14 @@ describe('Error scenarios', () => {
         expect(spy.stdout).toBeCalledTimes(1);
         expect(spy.stdout).toHaveBeenCalledWith(errorMessage);
     });
+
+    test('Should called "process.stdout.write" with error message "Error: Problem with config", when Input: User passes the same cli argument twice', () => {
+        myWrongConfig = ['', '', '-c', 'C1-C1-A-R0', '-c', 'C1, -i', 'some.txt', '-o', 'some.txt'];
+        errorMessage = 'Error: Problem with config';
+
+        parseCLI(myWrongConfig);
+        expect(spy.stdout).toHaveBeenCalledWith(errorMessage);
+    });
 });
 
 describe('Success scenarios', () => {
@@ -223,6 +230,43 @@ describe('Success scenarios', () => {
 
         fs.createReadStream(pathOutputFile).on('data', (buffer) => {
             expect(buffer.toString()).toEqual(correctEncodingText);
+        });
+    });
+});
+
+describe('ValidatorOptions testing', () => {
+    test('Should return hasError: true when un correct config', () => {
+        const unCorrectConfig = '-c';
+        expect(validatorOptions(unCorrectConfig)).toEqual({
+            hasError: true,
+            params: [],
+        });
+    });
+
+    test('Should return hasError: true when un correct config', () => {
+        const unCorrectConfig = '-c, "C2"';
+        console.log(validatorOptions(unCorrectConfig));
+        expect(validatorOptions(unCorrectConfig)).toEqual({
+            hasError: true,
+            params: [],
+        });
+    });
+
+    test('Should return hasError: true when un correct config', () => {
+        const unCorrectConfig = '-c, "C1-A2"';
+        console.log(validatorOptions(unCorrectConfig));
+        expect(validatorOptions(unCorrectConfig)).toEqual({
+            hasError: true,
+            params: [],
+        });
+    });
+
+    test('Should return hasError: true when un correct config', () => {
+        const unCorrectConfig = '-c, "C0-C2"';
+        console.log(validatorOptions(unCorrectConfig));
+        expect(validatorOptions(unCorrectConfig)).toEqual({
+            hasError: true,
+            params: [],
         });
     });
 });
