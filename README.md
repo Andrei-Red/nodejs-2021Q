@@ -57,6 +57,16 @@ Learn more [Caesar cipher](https://en.wikipedia.org/wiki/Caesar_cipher).
 4. You may not use `--output` argument  then  you will see encoded or decoded messages in the terminal line.
 5. Only English letters will be encoded or decoded.  
 
+
+### Testing:
+   All files are `test` folder
+
+   - `node run test`
+   - `node run coverage` for detail testing report
+
+Testing done with requirements:
+#### [Technical task](https://github.com/rolling-scopes-school/basic-nodejs-course/blob/master/descriptions/testing.md)
+
 ___
 ##### For [The Rolling Scopes School](https://rs.school/) course with
 ##### Author: [Andrei Denisenko <@Andrei-Red>](https://github.com/Andrei-Red)
