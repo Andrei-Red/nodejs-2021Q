@@ -11,8 +11,7 @@ const createCodingStreamsArray = (config) => {
             answer.push(
                 new Transform({
                     transform(chunk, encoding, callback) {
-                        this.push(caesarCoding(chunk.toString(), param));
-                        callback();
+                        callback(null, caesarCoding(chunk.toString(), param));
                     },
                 })
             );
@@ -20,8 +19,7 @@ const createCodingStreamsArray = (config) => {
             answer.push(
                 new Transform({
                     transform(chunk, encoding, callback) {
-                        this.push(rot8(chunk.toString(), param));
-                        callback();
+                        callback(null, rot8(chunk.toString(), param));
                     },
                 })
             );
@@ -29,8 +27,7 @@ const createCodingStreamsArray = (config) => {
             answer.push(
                 new Transform({
                     transform(chunk, encoding, callback) {
-                        this.push(atbach(chunk.toString()));
-                        callback();
+                        callback(null, atbach(chunk.toString()));
                     },
                 })
             );

@@ -1,4 +1,4 @@
-const rot8 = require('./rot8');
+const rot8 = require('../../src/coding/rot8');
 
 describe('rot8 testing', () => {
     test('Should return encoding string', () => {

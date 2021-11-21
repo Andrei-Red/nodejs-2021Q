@@ -1,4 +1,4 @@
-const caesarCoding = require('./caesarCoding');
+const caesarCoding = require('../../src/coding/caesarCoding');
 
 describe('caesarCoding testing', () => {
     test('Should return encoding string', () => {

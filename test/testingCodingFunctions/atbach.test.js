@@ -1,4 +1,4 @@
-const atbach = require('./atbach');
+const atbach = require('../../src/coding/atbach');
 
 describe('atbach testing', () => {
 
